@@ -88,7 +88,6 @@
  {
  }
  */
-
 /*
  // Override to support conditional rearranging of the table view.
  - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
@@ -97,11 +96,10 @@
  return YES;
  }
  */
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIAlertView *alrt = [[UIAlertView alloc] initWithTitle:@"Date Time" message:[arrayForTableContent objectAtIndex:indexPath.row] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    //[alrt show];
+    UIAlertView *alrt = [[UIAlertView alloc] initWithTitle:@"Selected Item" message:[arrayForTableContent objectAtIndex:indexPath.row] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alrt show];
     [alrt release];
 }
 
