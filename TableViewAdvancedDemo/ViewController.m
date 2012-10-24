@@ -107,7 +107,7 @@
 - (void)insertNewObject:(id)sender
 {
     if (!arrayForTableContent) {
-       // arrayForTableContent = [[NSMutableArray alloc] init];
+        arrayForTableContent = [[NSMutableArray alloc] init];
     }
     NSString *strTobeAdded = [NSString stringWithFormat:@"%d",[arrayForTableContent count]+1];
     [arrayForTableContent insertObject:strTobeAdded atIndex:0];
@@ -115,6 +115,11 @@
     [self.tableViewForScreen insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    NSString *rowContent = [arrayForTableContent objectAtIndex:fromIndexPath.row];
+    [arrayForTableContent removeObjectAtIndex:fromIndexPath.row];
+    [arrayForTableContent insertObject:rowContent atIndex:toIndexPath.row];
+}
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
